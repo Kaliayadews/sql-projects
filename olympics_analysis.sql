@@ -1,4 +1,14 @@
---Identify the sport which was played in all summer Olympic games--
+--Olympics SQL Analysis
+-- Dataset downloaded from Kaggle
+-- Created: [April 2025]
+-- Description:
+-- This SQL script explores Olympic history medal data 
+
+ Note: Queries use CTEs, CASE WHEN logic, and window functions like ROW_NUMBER()
+-- to identify top-performing countries by medal type across each Olympic Games.
+
+	 
+--Q1: Identify the sport which was played in all summer Olympic games
 
 with t1 as
 (Select Count(distinct games) as total_summer_games
@@ -42,7 +52,7 @@ Select *
 From t2
 Where Rnk <= 5 ;
 
--- List total gold, silver and bronze medals won by each county --
+--Q2: List total gold, silver and bronze medals won by each county --
 
 #Below shows in a row level - need to get medal types in column level
 Select nr.region as country, medal, count(medal) total_medal
@@ -62,7 +72,7 @@ Where Medal in ('Gold', 'Silver', 'Bronze')
 Group by nr.region, medal
 Order by Gold Desc, Silver Desc, Bronze Desc;
 
--- Which county won the most gold, silver and bronze in each olympic games --
+--Q3 Which county won the most gold, silver and bronze in each olympic games --
 
 WITH medal_counts AS (
   SELECT games,team,
