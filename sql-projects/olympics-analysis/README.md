@@ -1,4 +1,4 @@
-#Olympics Analysis (mySQL Project #1)
+# Olympics Analysis (mySQL Project #1)
 
 This project uses SQL to analyze historical Olympic Games data.  
 It answers multiple questions (showcased within the code).
